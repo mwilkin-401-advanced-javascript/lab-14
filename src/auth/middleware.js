@@ -10,12 +10,12 @@ module.exports = (capability) => {
       let [authType, authString] = req.headers.authorization.split(/\s+/);
 
       switch (authType.toLowerCase()) {
-        case 'basic':
-          return _authBasic(authString);
-        case 'bearer':
-          return _authBearer(authString);
-        default:
-          return _authError();
+      case 'basic':
+        return _authBasic(authString);
+      case 'bearer':
+        return _authBearer(authString);
+      default:
+        return _authError();
       }
     } catch (e) {
       _authError();
@@ -40,6 +40,7 @@ module.exports = (capability) => {
         .catch(_authError);
     }
 
+    // way to secure route if they are a user and don't have a capability assigned
     function _authenticate(user) {
       if ( user && (!capability || (user.can(capability))) ) {
         req.user = user;
