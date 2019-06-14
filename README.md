@@ -39,6 +39,33 @@ Modules
 
 Exported Values and Methods
 
+Routes
+
+* Endpoint: `/signup`
+  * not used in this project.
+* Endpoint: `/signin`
+  * not used in this project.
+* Endpoint: `/oauth`
+  * authorization route
+* Endpoint: `/roles`
+  * initialize roles
+* Endpoint `/public-stuff`
+  * auth route
+* Endpoint `/hidden-stuff`
+  * hidden stuff
+* Endpoint `/something-to-read`
+  * read
+* Endpoint `/create-a-thing`
+  * create
+* Endpoint `/update`
+  * update
+* Endpoint `/jp`
+  * patch/update
+* Endpoint `/bye-bye`
+  * delete
+* Endpoint `/everything`
+  * get all
+
 
 ### Setup
 
