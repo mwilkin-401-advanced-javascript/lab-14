@@ -15,14 +15,22 @@ const users = new mongoose.Schema({
   username: {type:String, required:true, unique:true},
   password: {type:String, required:true},
   email: {type: String},
-  role: {type: String, default:'user', enum: ['admin','editor','user']},
+  role: {type: String, default:'user', enum: ['admin','editor','user']}}, { toObject:{virtuals:true}, toJSON:{virtuals:true} });
+
+users.virtual('acl', {
+  ref: 'roles',
+  localField: 'role',
+  foreignFeild: 'role',
+  justOne:true,
 });
 
-const capabilities = {
-  admin: ['create','read','update','delete'],
-  editor: ['create', 'read', 'update'],
-  user: ['read'],
-};
+// users.pre('findOne') add this in...
+
+// const capabilities = {
+//   admin: ['create','read','update','delete'],
+//   editor: ['create', 'read', 'update'],
+//   user: ['read'],
+// };
 
 users.pre('save', function(next) {
   bcrypt.hash(this.password, 10)
@@ -81,7 +89,7 @@ users.methods.generateToken = function(type) {
   
   let token = {
     id: this._id,
-    capabilities: capabilities[this.role],
+    capabilities: this.acl.capabilities,
     type: type || 'user',
   };
   
@@ -94,7 +102,7 @@ users.methods.generateToken = function(type) {
 };
 
 users.methods.can = function(capability) {
-  return capabilities[this.role].includes(capability);
+  return this.acl.capabilities.includes(capability);
 };
 
 users.methods.generateKey = function() {
