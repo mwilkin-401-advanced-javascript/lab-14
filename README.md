@@ -6,13 +6,13 @@
 
 ### Links and Resources
 
-[Submission PR](https://github.com/mwilkin-401-advanced-javascript/lab-14/pull/1)
+* [Submission PR](https://github.com/mwilkin-401-advanced-javascript/lab-14/pull/1)
 
-[Travis](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-14)
+* [Travis](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-14)
 
-[Heroku]()
+* [Heroku](https://limitless-springs-36813.herokuapp.com/)
 
-* UML <img src="./assets/lab14_UML.jpg" width="400">
+* [UML] <img src="./assets/lab14_UML.jpg" width="400">
 
 ### Documentation
 
