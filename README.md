@@ -12,7 +12,7 @@
 
 [Heroku]()
 
-* UML <img src="./assets/.png" width="400">
+* UML <img src="./assets/lab14_UML.jpg" width="400">
 
 ### Documentation
 
