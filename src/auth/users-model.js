@@ -24,7 +24,15 @@ users.virtual('acl', {
   justOne:true,
 });
 
-// users.pre('findOne') add this in...
+users.pre('findOne', function() {
+  try{
+    this.populate('acl');
+  }
+  catch(e) {
+    console.error('error', e);
+  }
+});
+
 
 // const capabilities = {
 //   admin: ['create','read','update','delete'],
