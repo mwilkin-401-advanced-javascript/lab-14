@@ -1,4 +1,7 @@
 PORT=3000
-MONGODB_URI=MONGODB_URI=mongodb://localhost:27017/class-14
-SECRET=MaggieIsmyDog
+MONGODB_URI=mongodb://localhost:27017/class-14
+SECRET='somesecretstring'
 EXPIRE_TIME=10m
+
+GOOGLE_CLIENT_SECRET = 
+GOOGLE_CLIENT_ID =
