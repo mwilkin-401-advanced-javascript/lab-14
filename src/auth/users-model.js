@@ -33,7 +33,6 @@ users.pre('findOne', function() {
   }
 });
 
-
 // const capabilities = {
 //   admin: ['create','read','update','delete'],
 //   editor: ['create', 'read', 'update'],
