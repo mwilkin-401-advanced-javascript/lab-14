@@ -8,11 +8,11 @@ const Role = require('./roles-mode.js');
 const auth = require('./middleware.js');
 const oauth = require('./oauth/google.js');
 
-const capabilities = {
-  admin: ['create', 'update', 'delete', 'read'],
-  user: ['read'],
+// const capabilities = {
+//   admin: ['create', 'update', 'delete', 'read'],
+//   user: ['read'],
 
-};
+// };
 
 authRouter.post('/role', (req, res, next) => {
   let role = new Role(req.body);
