@@ -8,7 +8,9 @@
     "lint": "eslint **/*.js",
     "test": "jest --verbose --coverage",
     "test-watch": "jest --watchAll --verbose --coverage",
-    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json ."
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json .",
+    "push-check": "npm test && npm run lint",
+    "build-docs": "jsdoc -c ./docs/config/jsdoc.config.json . && open ./docs/index.html"
   },
   "jest": {
     "testEnvironment": "node"
