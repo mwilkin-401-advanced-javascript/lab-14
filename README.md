@@ -64,7 +64,7 @@ Routes
 * Endpoint `/bye-bye`
   * delete
 * Endpoint `/everything`
-  * get all
+  * get all superuser
 
 
 ### Setup
