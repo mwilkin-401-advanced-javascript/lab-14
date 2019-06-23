@@ -2,8 +2,26 @@
 
 const User = require('./users-model.js');
 
+/**
+ * middleware Module
+ * @module middleware
+ * @param capability - user's capability
+ */
+
+/**
+ * auth export
+ * @type {Object}
+ */
+
 module.exports = (capability) => {
   
+  /**
+   * @param {Object} req - request object
+   * @param {Object} res - response object
+   * @param {Object} next - next function
+   * @desc contains all middleware authorization methods
+   */
+
   return (req, res, next) => {
 
     try {
@@ -21,8 +39,15 @@ module.exports = (capability) => {
       _authError();
     }
 
+    /**
+    * @method _authBasic
+    * @param {Object} req - request
+    * @param {Object} str - string
+    * @param {Object} capability - capability
+    * @desc Handles creating auth information and calls User.authenticateBasic and handles the return
+    */
 
-    function _authBasic(str) {
+    function _authBasic(str, capability) {
     // str: am9objpqb2hubnk=
       let base64Buffer = Buffer.from(str, 'base64'); // <Buffer 01 02 ...>
       let bufferString = base64Buffer.toString();    // john:mysecret
@@ -30,12 +55,20 @@ module.exports = (capability) => {
       let auth = {username, password}; // { username:'john', password:'mysecret' }
 
       return User.authenticateBasic(auth)
-        .then(user => _authenticate(user))
+        .then(user => _authenticate(user, capability))
         .catch(_authError);
     }
 
-    function _authBearer(authString) {
-      return User.authenticateToken(authString)
+    /**
+    * @method _authBearer
+    * @param {Object} req - request
+    * @param {Object} authString - user object containing user credentials
+    * @param {Object} capability - capabilities
+    * @desc Handles authenticating a user and moves onto next middleware or returns and error
+    */
+
+    function _authBearer(authString, capability) {
+      return User.authenticateToken(authString, capability)
         .then(user => _authenticate(user))
         .catch(_authError);
     }

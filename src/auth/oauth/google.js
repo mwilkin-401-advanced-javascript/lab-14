@@ -3,6 +3,16 @@
 const superagent = require('superagent');
 const Users = require('../users-model.js');
 
+/**
+* @module oauth-google
+* @desc Google oauth for user signin
+ */
+
+/**
+* @function authorize
+* @param req - request
+ */
+
 const authorize = (req) => {
 
   let code = req.query.code;
@@ -19,7 +29,6 @@ const authorize = (req) => {
     })
     .then( response => {
       let access_token = response.body.access_token;
-      console.log('(2) ACCESS TOKEN:', access_token);
       return access_token;
     })
     .then(token => {
@@ -28,21 +37,23 @@ const authorize = (req) => {
         .then( response => {
           let user = response.body;
           user.access_token = token;
-          console.log('(3) GOOGLEUSER', user);
           return user;
         });
     })
     .then(oauthUser => {
-      console.log('(4) CREATE ACCOUNT');
       return Users.createFromOAuth(oauthUser);
     })
     .then(actualRealUser => {
-      console.log('(5) ALMOST ...', actualRealUser);
       return actualRealUser.generateToken();
     })
     .catch(error => error);
 
 
 };
+
+/**
+ * Export object
+ * @type {Object} - authorize
+ */
 
 module.exports = {authorize};
