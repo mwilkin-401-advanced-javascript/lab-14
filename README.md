@@ -12,6 +12,10 @@
 
 * [Heroku](https://limitless-springs-36813.herokuapp.com/)
 
+* [Swagger](https://limitless-springs-36813.herokuapp.com/api-docs)
+
+* [JSDOC](https://limitless-springs-36813.herokuapp.com/docs)
+
 * [UML] <img src="./assets/lab14_UML.jpg" width="400">
 
 ### Documentation
@@ -47,6 +51,9 @@
   supertest
   
   swagger-ui-express
+
+  express-swagger-generator
+
 
 Modules
 
@@ -93,7 +100,7 @@ Running the app
 
 How do you run tests?
 
-`npm test`
+`npm test` (filename)
 
 What assertions were made?
 What assertions need to be / should be made?

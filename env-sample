@@ -3,7 +3,7 @@ MONGODB_URI=mongodb://localhost:27017/class-14
 SECRET='somesecretstring'
 EXPIRE_TIME=10m
 
-GOOGLE_CLIENT_SECRET = 
-GOOGLE_CLIENT_ID =
-TOKEN_LIFETIME=
-SINGLE_USE_TOKENS=
+GOOGLE_CLIENT_SECRET = something here
+GOOGLE_CLIENT_ID = another thing here
+
+SINGLE_USE_TOKENS=false
