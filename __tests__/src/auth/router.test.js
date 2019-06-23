@@ -5,22 +5,21 @@ process.env.SECRET = 'test';
 // const jwt = require('jsonwebtoken');
 
 // const Roles = require('../../../src/auth/roles-model.js');
-const server = require('../../../src/app.js').server;
+// const server = require('../../../src/app.js').server;
 const supergoose = require('../../supergoose.js');
 
-const mockRequest = supergoose.server(server);
+// const mockRequest = supergoose.server(server);
 
-let users = {
-  admin: {username: 'admin', password: 'password', role: 'admin'},
-  editor: {username: 'editor', password: 'password', role: 'editor'},
-  user: {username: 'user', password: 'password', role: 'user'},
-};
+// let users = {
+//   admin: {username: 'admin', password: 'password', role: 'admin'},
+//   editor: {username: 'editor', password: 'password', role: 'editor'},
+//   user: {username: 'user', password: 'password', role: 'user'},
+// };
 
 beforeAll(async (done) => {
   await supergoose.startDB();
   done();
 });
-
 
 afterAll(supergoose.stopDB);
 
