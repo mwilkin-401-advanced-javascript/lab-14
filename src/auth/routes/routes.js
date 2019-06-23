@@ -12,6 +12,11 @@ const auth = require('../middleware.js');
 const oauth = require('../oauth/google.js');
 
 const newRouter = express.Router();
+const capabilities = {
+  admin: ['create','read','update','delete', 'superuser'],
+  editor: ['create', 'read', 'update'],
+  user: ['read'],
+};
 
 /**
  * post route assign role
@@ -21,14 +26,24 @@ const newRouter = express.Router();
  * @returns {Object} 200 - assigns roles to users capabilities
  */
 
-newRouter.post('/role', (req, res, next) => {
-  let role = new Role(req.body);
-  role.save()
-    .then(result => {
-      res.status(200).send(result);
-    })
-    .catch(next);
+newRouter.post('/role', (req, res) => {
+  let saves = [];
+  Object.keys(capabilities).map(role => {
+    let newRecord = new Role({role, capabilities: capabilities[role]});
+    saves.push(newRecord.save());
+  });
+  Promise.all(saves);
+  res.status(200).send('Roles created');
 });
+
+// newRouter.post('/role', (req, res, next) => {
+//   let role = new Role(req.body);
+//   role.save()
+//     .then(result => {
+//       res.status(200).send(result);
+//     })
+//     .catch(next);
+// });
 
 /**
  * get route public-stuff

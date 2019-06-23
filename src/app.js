@@ -30,7 +30,7 @@ app.use('/docs', express.static('docs'));
 
 // Routes
 app.use(authRouter);
-app.use(newRouter);
+// app.use(newRouter);
 
 // Catchalls
 app.use(notFound);

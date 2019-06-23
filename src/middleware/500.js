@@ -7,6 +7,7 @@
 
 /**
   * 
+  * @param {object} err - error object
   * @param {object} req - request object
   * @param {object} res - response object
   * @desc server error handler - error 500

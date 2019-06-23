@@ -16,6 +16,7 @@ const User = require('./users-model.js');
 module.exports = (capability) => {
   
   /**
+   * @method middleware
    * @param {Object} req - request object
    * @param {Object} res - response object
    * @param {Object} next - next function

@@ -17,6 +17,7 @@ const oauth = require('./oauth/google.js');
 /**
  * post route assign role
  * @route POST /{role}
+ * @method post
  * @consumes application/json application/xml
  * @param req - request
  * @param res - response
@@ -37,6 +38,7 @@ authRouter.post('/role', (req, res, next) => {
 /**
  * signup user
  * @route POST /{signup}
+ * @method post
  * @consumes application/json application/xml
  * @param req - request
  * @param res - response
@@ -61,6 +63,7 @@ authRouter.post('/signup', (req, res, next) => {
 /**
  * signin user
  * @route POST /{signin}
+ * @method get
  * @consumes application/json application/xml
  * @param req - request
  * @param res - response
@@ -77,6 +80,7 @@ authRouter.get('/signin', auth(), (req, res, next) => {
 /**
  * oauth user
  * @route GET /{oauth}
+ * @method get
  * @consumes application/json application/xml
  * @param req - request
  * @param res - response
@@ -96,6 +100,7 @@ authRouter.get('/oauth', (req,res,next) => {
 /**
  * Saves a user key(token)
  * @route POST /{key}
+ * @method post
  * @consumes application/json application/xml
  * @returns {Object} 500 - Server error
  * @returns {Object} 200 - generates key and sends it
