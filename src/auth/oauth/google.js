@@ -53,7 +53,7 @@ const authorize = (req) => {
 
 /**
  * Export object
- * @type {Object} - authorize
+ * @type {Object}
  */
 
 module.exports = {authorize};
