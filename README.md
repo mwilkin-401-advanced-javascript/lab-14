@@ -16,22 +16,36 @@
 
 ### Documentation
 
-Dependencies
+#### Dependencies
 
   bcrypt
+
   cors 
+
   debug 
+
   dotenv
+
   eslint
+
   express
+
   jest
+
   jsonwebtoken
+
   mongodb-memory-server
+
   mongoose
+
   mongoose-schema-jsonschema
+
   morgan
+
   require-directory
+
   supertest
+  
   swagger-ui-express
 
 Modules
