@@ -4,7 +4,7 @@ const express = require('express');
 const authRouter = express.Router();
 
 const User = require('./users-model.js');
-const Role = require('./roles-mode.js');
+const Role = require('./roles-model.js');
 const auth = require('./middleware.js');
 const oauth = require('./oauth/google.js');
 
